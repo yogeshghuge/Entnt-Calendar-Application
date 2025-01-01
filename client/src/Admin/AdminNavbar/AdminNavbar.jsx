@@ -8,6 +8,11 @@ const AdminNavbar = () => {
     setIsSidebarOpen(!isSidebarOpen);
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("admin");
+    navigate("/adminLogin");
+  };
+
   return (
     <div className="relative">
       {/* Navbar */}
@@ -79,7 +84,7 @@ const AdminNavbar = () => {
           </li>
           <li>
             <Link
-              to={`/admin/logout`}
+              onClick={handleLogout}
               className="block px-4 py-2 text-gray-700 rounded hover:bg-gray-100"
             >
               Logout

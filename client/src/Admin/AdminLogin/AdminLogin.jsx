@@ -1,5 +1,6 @@
 import  { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
 
 const AdminLogin = () => {
    const [username, setUsername] = useState("");
@@ -20,13 +21,11 @@ const AdminLogin = () => {
          if(username === realUsername && password === realPassword) {
             alert("Admin Login Successful");
             navigate("/admin");
+            localStorage.setItem("admin", "admin");
          }
          else {
-            toast.error("Iemail and password may be wrong");
+            toast.error("Invalid email and password");
          }
-
-         // if not, display an error message
-         alert(`Username: ${username}, Password: ${password}`);
 
    };
 

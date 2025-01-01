@@ -2,6 +2,8 @@
 import { Routes, Route } from 'react-router-dom';
 import AdminLayout from './AdminLayout';
 import CompanyManagement from '../Admin/CompanyMangement/CompanyManagement';
+import AdminProtection from './AdminProtection';
+import CompaniesList from '../Admin/Users/CompaniesList';
 
 
 const AdminRouter = () => {
@@ -10,10 +12,13 @@ const AdminRouter = () => {
          
          <Routes>
 
-            <Route path="/" element={<AdminLayout />} >
+            <Route path="/" element={<AdminProtection />} >
 
-               <Route path="admin" element={<CompanyManagement />} />
-               <Route path="admin/admin" element={<h1>Admin</h1>} /> 
+               <Route path="/" element={<AdminLayout />} >
+
+                  <Route path="/company" element={<CompaniesList />} /> 
+                  <Route path="/" element={<CompanyManagement />} />
+               </Route>
             </Route>
          </Routes>
       </div>
